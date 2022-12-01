@@ -96,6 +96,10 @@ body {
   grid-column: 2;
 }
 
+.animais-lista li {
+  cursor: pointer;
+}
+
 .animais-lista::-webkit-scrollbar {
   width: 18px;
 }
@@ -212,4 +216,74 @@ body {
   .copy {
     margin-bottom: 0px;
   }
+}
+
+/* JAVASCRIPT */
+
+/* navegação por tabs */
+.js .js-tabcontent section {
+  display: none;
+}
+
+.js-tabcontent section.ativo {
+  display: block !important;
+  animation: show 0.5s forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Ocultar e exibir perguntas */
+
+.js .js-perguntas dd {
+  display: none;
+}
+
+.js-perguntas dt::after {
+  content: '⮧';
+  margin-left: 10px;
+}
+
+.js-perguntas dt.ativo::after {
+  content: '⮥';
+}
+
+.js-perguntas dd.ativo {
+  display: block;
+  animation: slideDown 0.8s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  to {
+    max-height: 200px;
+    opacity: 1;
+  }
+}
+
+/* Animação do scroll */
+
+.js .js-scroll {
+  opacity: 0;
+  transform: translate3d(-30px, 0, 0);
+  transition: 0.5s;
+}
+
+.js .js-scroll.ativo {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: 0.5s;
 }
