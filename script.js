@@ -1,7 +1,7 @@
 // Criação de navegação por tabs (ao clicar na imagem, abrir texto informativo)
 function navegacaoTab() {
-    const tabMenu = document.querySelectorAll('.js-tabmenu li')
-    const tabContent = document.querySelectorAll('.js-tabcontent section')
+    const tabMenu = document.querySelectorAll('[data-tab="menu"] li')
+    const tabContent = document.querySelectorAll('[data-tab="content"] section')
 
     if (tabMenu.length && tabContent.length) {
         tabContent[0].classList.add('ativo')
@@ -12,7 +12,8 @@ function navegacaoTab() {
 
         tabContent.forEach((section) => { section.classList.remove('ativo') })
 
-        tabContent[index].classList.add('ativo')
+        const direcao = tabContent[index].dataset.anime
+        tabContent[index].classList.add('ativo', direcao)
     }
 
     tabMenu.forEach((itemMenu, index) => {
@@ -25,7 +26,7 @@ navegacaoTab()
 
 // Criação de ocultar e exibir perguntas do FAQ (ao clicar, aparece a pergunta junto com a descrição)
 function navegacaoPerguntas() {
-    const listaPerguntas = document.querySelectorAll('.js-perguntas dt')
+    const listaPerguntas = document.querySelectorAll('[data-anime="perguntas"] dt')
     const activeClass = 'ativo'
 
     if (listaPerguntas.length) {
@@ -48,7 +49,7 @@ navegacaoPerguntas()
 
 // Criação de rolagem suave ao clicar nos links internos
 function navegacaoScrollSuave() {
-    const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]')
+    const linksInternos = document.querySelectorAll('[data-menu="suave"] a[href^="#"]')
 
     function scrollToSection(event) {
         event.preventDefault()
@@ -77,7 +78,7 @@ navegacaoScrollSuave()
 
 // Criação de animação da barra de rolagem do scroll
 function navegacaoAnimacaoScroll() {
-    const sections = document.querySelectorAll('.js-scroll')
+    const sections = document.querySelectorAll('[data-anime="scroll"]')
 
     if (sections.length) {
 
