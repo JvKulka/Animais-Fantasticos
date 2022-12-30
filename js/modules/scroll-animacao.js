@@ -8,11 +8,9 @@ export default function navegacaoAnimacaoScroll() {
 
         function animaScroll() {
             sections.forEach((section) => {
-                const sectionTop = section.getBoundingClientRect().top - metadeWindow
-
-                if (sectionTop < 0) {
-                    section.classList.add('ativo')
-                }
+                const sectionTop = section.getBoundingClientRect().top
+                const isSectionVisible = (sectionTop - metadeWindow) < 0
+                if (isSectionVisible) section.classList.add('ativo')
             })
         }
         animaScroll()
