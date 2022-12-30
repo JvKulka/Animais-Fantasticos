@@ -5,6 +5,7 @@ import navegacaoTab from './modules/nav-tabs.js'
 import initModal from './modules/modal.js'
 import initTooltip from './modules/tooltip.js'
 import dropDownMenu from './modules/dropdown-menu.js'
+import menuMobile from './modules/menu-mobile.js'
 
 navegacaoScrollSuave()
 navegacaoAnimacaoScroll()
@@ -13,3 +14,4 @@ navegacaoTab()
 initModal()
 initTooltip()
 dropDownMenu()
+menuMobile()
