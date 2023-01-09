@@ -16,9 +16,4 @@ export default function horarioFuncionamento() {
     } else {
         funcionamento.classList.add('fechado')
     }
-
-
-    console.log(semanaAberta)
-
-
 }
