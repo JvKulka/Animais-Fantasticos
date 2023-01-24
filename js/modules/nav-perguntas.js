@@ -1,22 +1,29 @@
 // Criação de ocultar e exibir perguntas do FAQ
 // (ao clicar, aparece a pergunta junto com a descrição)
-export default function navegacaoPerguntas() {
-  const listaPerguntas = document.querySelectorAll(
-    '[data-anime="perguntas"] dt'
-  );
-  const activeClass = "ativo";
-
-  function activePerguntas() {
-    this.classList.toggle(activeClass);
-    this.nextElementSibling.classList.toggle(activeClass);
+export default class Perguntas {
+  constructor(list) {
+    this.listaPerguntas = document.querySelectorAll(list);
+    this.activeClass = "ativo";
   }
 
-  if (listaPerguntas.length) {
-    listaPerguntas[0].classList.add(activeClass);
-    listaPerguntas[0].nextElementSibling.classList.add(activeClass);
+  togglePerguntas(item) {
+    item.classList.toggle(this.activeClass);
+    item.nextElementSibling.classList.toggle(this.activeClass);
+  }
 
-    listaPerguntas.forEach((item) => {
-      item.addEventListener("click", activePerguntas);
+  // Adiciona os eventos as peguntas
+  addEventPerguntas() {
+    this.listaPerguntas.forEach((item) => {
+      item.addEventListener("click", () => this.togglePerguntas(item));
     });
+  }
+
+  // Iniciar função
+  init() {
+    if (this.listaPerguntas.length) {
+      // ativar primeiro item
+      this.togglePerguntas(this.listaPerguntas[0]);
+      this.addEventPerguntas();
+    }
   }
 }
