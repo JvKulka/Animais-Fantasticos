@@ -1,29 +1,33 @@
 // Criação de rolagem suave ao clicar nos links internos
-export default function navegacaoScrollSuave() {
-  const linksInternos = document.querySelectorAll(
-    '[data-menu="suave"] a[href^="#"]'
-  );
+export default class ScrollSuave {
+  constructor(links, options) {
+    this.linksInternos = document.querySelectorAll(links);
+    if (options === undefined) {
+      this.options = { behavior: "smooth", block: "start" };
+    } else {
+      this.options = options;
+    }
 
-  function scrollToSection(event) {
-    event.preventDefault();
-
-    const href = event.currentTarget.getAttribute("href"); // Pega o atributo do link interno (apenas o #)
-    const section = document.querySelector(href); // Seleciona a sessão
-
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-
-    // // forma alternativa
-    // const topo = section.offsetTop // Seleciona o topo da sessão
-    // window.scrollTo({
-    //     top: topo,
-    //     behavior: 'smooth'
-    // })
+    this.scrollToSection = this.scrollToSection.bind(this);
   }
 
-  linksInternos.forEach((link) => {
-    link.addEventListener("click", scrollToSection);
-  });
+  scrollToSection(event) {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute("href"); // Pega o atributo do link interno (apenas o #)
+    const section = document.querySelector(href); // Seleciona a sessão
+    section.scrollIntoView(this.options);
+  }
+
+  addLinkEvent() {
+    this.linksInternos.forEach((link) => {
+      link.addEventListener("click", this.scrollToSection);
+    });
+  }
+
+  init() {
+    if (this.linksInternos.length) {
+      this.addLinkEvent();
+    }
+    return this;
+  }
 }
