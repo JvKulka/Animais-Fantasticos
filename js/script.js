@@ -2,7 +2,7 @@ import ScrollSuave from "./modules/scroll-suave.js";
 import navegacaoAnimacaoScroll from "./modules/scroll-animacao.js"; // ultimo
 import Perguntas from "./modules/nav-perguntas.js";
 import NavegacaoTab from "./modules/nav-tabs.js";
-import initModal from "./modules/modal.js";
+import Modal from "./modules/modal.js";
 import initTooltip from "./modules/tooltip.js";
 import dropDownMenu from "./modules/dropdown-menu.js";
 import menuMobile from "./modules/menu-mobile.js";
@@ -22,8 +22,14 @@ const navegacaoTab = new NavegacaoTab(
 );
 navegacaoTab.init();
 
+const modal = new Modal(
+  '[data-modal="abrir"]',
+  '[data-modal="fechar"]',
+  '[data-modal="container"]'
+);
+modal.init();
+
 navegacaoAnimacaoScroll();
-initModal();
 initTooltip();
 dropDownMenu();
 menuMobile();
