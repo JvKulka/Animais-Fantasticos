@@ -1,7 +1,7 @@
 import ScrollSuave from "./modules/scroll-suave.js";
 import navegacaoAnimacaoScroll from "./modules/scroll-animacao.js"; // ultimo
 import Perguntas from "./modules/nav-perguntas.js";
-import navegacaoTab from "./modules/nav-tabs.js";
+import NavegacaoTab from "./modules/nav-tabs.js";
 import initModal from "./modules/modal.js";
 import initTooltip from "./modules/tooltip.js";
 import dropDownMenu from "./modules/dropdown-menu.js";
@@ -16,8 +16,13 @@ scrollSuave.init();
 const perguntas = new Perguntas('[data-anime="perguntas"] dt');
 perguntas.init();
 
+const navegacaoTab = new NavegacaoTab(
+  '[data-tab="menu"] li',
+  '[data-tab="content"] section'
+);
+navegacaoTab.init();
+
 navegacaoAnimacaoScroll();
-navegacaoTab();
 initModal();
 initTooltip();
 dropDownMenu();
