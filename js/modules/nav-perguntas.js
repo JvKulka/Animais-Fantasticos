@@ -25,5 +25,6 @@ export default class Perguntas {
       this.togglePerguntas(this.listaPerguntas[0]);
       this.addEventPerguntas();
     }
+    return this;
   }
 }
