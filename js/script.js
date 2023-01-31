@@ -3,7 +3,7 @@ import navegacaoAnimacaoScroll from "./modules/scroll-animacao.js"; // ultimo
 import Perguntas from "./modules/nav-perguntas.js";
 import NavegacaoTab from "./modules/nav-tabs.js";
 import Modal from "./modules/modal.js";
-import initTooltip from "./modules/tooltip.js";
+import Tooltip from "./modules/tooltip.js";
 import dropDownMenu from "./modules/dropdown-menu.js";
 import menuMobile from "./modules/menu-mobile.js";
 import horarioFuncionamento from "./modules/funcionamento.js";
@@ -29,8 +29,10 @@ const modal = new Modal(
 );
 modal.init();
 
+const tooltip = new Tooltip("[data-tooltip]");
+tooltip.init();
+
 navegacaoAnimacaoScroll();
-initTooltip();
 dropDownMenu();
 menuMobile();
 horarioFuncionamento();
