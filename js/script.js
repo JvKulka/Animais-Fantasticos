@@ -1,5 +1,5 @@
 import ScrollSuave from "./modules/scroll-suave.js";
-import navegacaoAnimacaoScroll from "./modules/scroll-animacao.js"; // ultimo
+import ScrollAnima from "./modules/scroll-anima.js"; // ultimo
 import Perguntas from "./modules/nav-perguntas.js";
 import NavegacaoTab from "./modules/nav-tabs.js";
 import Modal from "./modules/modal.js";
@@ -32,7 +32,9 @@ modal.init();
 const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init();
 
-navegacaoAnimacaoScroll();
+const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
+scrollAnima.init();
+
 dropDownMenu();
 menuMobile();
 horarioFuncionamento();
