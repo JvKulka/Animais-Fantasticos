@@ -1,5 +1,5 @@
 import ScrollSuave from "./modules/scroll-suave.js";
-import ScrollAnima from "./modules/scroll-anima.js"; // ultimo
+import ScrollAnima from "./modules/scroll-anima.js";
 import Perguntas from "./modules/nav-perguntas.js";
 import NavegacaoTab from "./modules/nav-tabs.js";
 import Modal from "./modules/modal.js";
