@@ -4,11 +4,11 @@ import Perguntas from "./modules/nav-perguntas.js";
 import NavegacaoTab from "./modules/nav-tabs.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
-import dropDownMenu from "./modules/dropdown-menu.js";
 import menuMobile from "./modules/menu-mobile.js";
 import horarioFuncionamento from "./modules/funcionamento.js";
 import fetchAnimais from "./modules/fetch-animais.js";
 import fetchBitcoin from "./modules/fetch-bitcoin.js";
+import DropDownMenu from "./modules/dropdown-menu.js";
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -35,7 +35,9 @@ tooltip.init();
 const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
 scrollAnima.init();
 
-dropDownMenu();
+const dropDownMenu = new DropDownMenu("[data-dropdown");
+dropDownMenu.init();
+
 menuMobile();
 horarioFuncionamento();
 
